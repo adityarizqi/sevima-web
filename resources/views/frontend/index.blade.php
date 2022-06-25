@@ -13,7 +13,7 @@
                             <div class="col-md-12">
                                 <div class="slide_text">
                                     <h3><span span class="theme_color">Kamu harus tau satu hal</span><br>Mencari Guru itu Mudah</h3>
-                                    <h4>Temukan gurumu sekarang!</h4>
+                                    <h4>Temukan guru favoritmu sekarang!</h4>
                                     <br>
                                     <div class="full center">
                                         <a class="contact_bt" href="{{ route('login') }}">Mulai</a>
