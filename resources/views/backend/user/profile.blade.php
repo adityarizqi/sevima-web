@@ -17,7 +17,7 @@
                         </div>
                     </div>
                     <div class="row align-items-center">
-                        <div class="col-md-6 mb-3"><label for="birthday">Birthday</label>
+                        <div class="col-md-6 mb-3"><label for="birthday">Tanggal Lahir</label>
                             <div class="input-group"><span class="input-group-text"><svg class="icon icon-xs"
                                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
@@ -27,9 +27,9 @@
                                     name="birth_day" type="text" placeholder="mm/dd/yyyy"
                                     value="{{ $data != null ? $data->birth_day : null }}" required></div>
                         </div>
-                        <div class="col-md-6 mb-3"><label for="gender">Gender</label> <select class="form-select mb-0"
+                        <div class="col-md-6 mb-3"><label for="gender">Jenis Kelamin</label> <select class="form-select mb-0"
                                 id="gender" name="gender" required>
-                                <option disabled @if ($data == null) selected @endif>Gender</option>
+                                <option disabled @if ($data == null) selected @endif>Pilih</option>
                                 <option value="Perempuan" @if ($data != null && $data->gender == 'Perempuan') selected @endif>Perempuan
                                 </option>
                                 <option value="Laki-Laki" @if ($data != null && $data->gender == 'Laki-Laki') selected @endif>Laki-Laki
@@ -43,15 +43,51 @@
                                     placeholder="alamat@email.com" readonly></div>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <div class="form-group"><label for="phone_number">Phone</label> <input class="form-control"
+                            <div class="form-group"><label for="phone_number">Nomor Telepon</label> <input class="form-control"
                                     id="phone_number" name="phone_number" type="text" value="{{ $data != null ? $data->phone_number : null }}"
                                     placeholder="+62 112 3334 5556" required></div>
                         </div>
                     </div>
+                    @if (auth()->user()->type == 'author')
+                    <div class="col-12 mb-3">
+                        <label for="bio">Bio</label>
+                        <textarea class="form-control" id="bio" name="bio" placeholder="eg. Saya suka membuat orang terkesan" id="textarea" rows="4" required>{{ $data != null ? $data->bio : '' }}</textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group"><label for="email">Status</label> <select class="form-select mb-0"
+                                id="is_available" name="is_available" required>
+                                <option disabled @if ($data == null) selected @endif>Pilih</option>
+                                <option value="Tersedia" @if ($data != null && $data->is_available == 'Tersedia') selected @endif>Tersedia
+                                </option>
+                                <option value="Tidak Tersedia" @if ($data != null && $data->is_available == 'Tidak Tersedia') selected @endif>Tidak Tersedia
+                                </option>
+                                <option value="Sibuk" @if ($data != null && $data->is_available == 'Sibuk') selected @endif>Sibuk
+                                </option>
+                            </select></div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="form-group"><label for="phone_number">Waktu Aktif</label> <input class="form-control"
+                                    id="daily_active_clock" name="daily_active_clock" type="text" value="{{ $data != null ? $data->daily_active_clock : null }}"
+                                    placeholder="07:00 - 10:00" required></div>
+                        </div>
+                    </div>
+                    @endif
+                    @if (auth()->user()->type == 'user')
                     <div class="col-12 mb-3">
                         <div><label for="name">Nama Sekolah / Lembaga / Instansi</label> <input class="form-control" id="school_or_agency" type="text"
                                 name="school_or_agency" value="{{ $data != null ? $data->school_or_agency : null}}" placeholder="eg. SMA Indonesia Jaya" required></div>
                     </div>
+                    @elseif (auth()->user()->type == 'author')
+                    <div class="col-12 mb-3">
+                        <div><label for="subject">Mata Pelajaran</label> <input class="form-control" id="subject" type="text"
+                                name="subject" value="{{ $user->subject }}" placeholder="eg. Bahasa Indonesia" required></div>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <div><label for="price">Harga Penawaran</label> <input class="form-control" id="price" type="number"
+                                name="price" value="{{ $user->price }}" placeholder="eg. 40.000 / Jam" required></div>
+                    </div>
+                    @endif
                     <h2 class="h5 my-4">Lokasi</h2>
                     <div class="col-12 mb-3">
                         <div><label for="address">Alamat</label> <input class="form-control" id="address" type="text"

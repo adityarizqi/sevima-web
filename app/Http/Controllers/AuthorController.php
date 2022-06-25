@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AuthorController extends Controller
@@ -10,10 +11,22 @@ class AuthorController extends Controller
         if(auth()->user()->details == null){
             return redirect()->route('backend.user.profile')->with('info','Silahkan lengkapi data diri Anda terlebih dahulu.');
         }
-        return "s";
-        // $params['data'] = auth()->user()->type == 'author' ?
-        //     DB::Table('author_relations')->where('author_id', auth()->user()->id)->orderBy('user_id', 'DESC')->paginate(10) :
-        //     DB::Table('users')->orderBy('name', 'DESC')->paginate(10);
-        // return view('backend.author.index', $params);
+        $detail = json_decode(auth()->user()->details);
+        $par_city = strtolower($detail->city);
+        $par_province = strtolower($detail->province);
+
+        $par_merge = $par_city . ' ' . $par_province;
+
+        $query = User::query();
+
+        $query->where('id','!=',auth()->user()->id);
+
+        $query->where('type','author');
+
+        $query->where('key','like',"%{$par_merge}%");
+
+        $params['data'] = $query->paginate(10);
+
+        return view('backend.author.index', $params);
     }
 }

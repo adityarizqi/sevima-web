@@ -34,6 +34,7 @@ class UserController extends Controller
         }
 
         $user->details = json_encode($request->except(['_token', 'name', 'image']));
+        $user->key = strtolower($request->get('city')) . ' ' . strtolower($request->get('province'));
         return $user->update() ? redirect()->back()->with('success', 'Profil berhasil diperbarui.') :
             redirect()->back()->with('error', 'Terjadi kesalahan.');
     }

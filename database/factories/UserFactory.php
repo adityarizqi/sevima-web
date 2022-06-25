@@ -18,6 +18,8 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $city = $this->faker->randomElement(['Jakarta', 'Bandung', 'Surabaya', 'Bali', 'Medan']);
+        $province = $this->faker->randomElement(['Jawa Barat', 'Jawa Timur', 'Jawa Tengah', 'Jawa Timur', 'Jawa Timur']);
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
@@ -30,12 +32,19 @@ class UserFactory extends Factory
                 'birth_day' => $this->faker->dateTimeBetween('-60 years', '-18 years')->format('m-d-Y'),
                 'gender' => $this->faker->randomElement(['Laki-Laki','Perempuan']),
                 'address' => $this->faker->address(),
+                'bio' => $this->faker->text(),
+                'subject' => $this->faker->randomElement(['Matematika', 'Fisika', 'Kimia', 'Biologi', 'Bahasa Inggris', 'Bahasa Indonesia']),
+                'price' => $this->faker->randomElement(['Rp50.000 / Jam','Rp100.000 / Jam', 'Rp200.000 / Jam', 'Rp300.000 / Jam', 'Rp400.000 / Jam', 'Rp500.000 / Jam']),
+                'is_available' => $this->faker->randomElement(['Tersedia', 'Sibuk', 'Tidak Tersedia']),
+                'daily_active_clock' => $this->faker->randomElement(['07:00 - 10:00', '10:00 - 13:00', '13:00 - 16:00', '16:00 - 19:00', '19:00 - 22:00']) . ' ' .
+                        $this->faker->randomElement(['WIB', 'WITA', 'WIT']),
                 'phone_number' => $this->faker->phoneNumber(),
                 'school_or_agency' => $this->faker->company(),
-                'city' => $this->faker->city(),
-                'province' => $this->faker->city(),
+                'city' => $city,
+                'province' => $province,
                 'zip' => $this->faker->postcode(),
-            ])
+            ]),
+            'key' => strtolower($city) . ' ' . strtolower($province)
         ];
     }
 
