@@ -36,5 +36,12 @@ class DatabaseSeeder extends Seeder
             'type' => 'author',
             'password' => Hash::make('admin123'),
         ]);
+
+        \App\Models\User::factory()->create([
+            'name' => 'User',
+            'email' => 'user@user.com',
+            'type' => 'user',
+            'password' => Hash::make('admin123'),
+        ]);
     }
 }

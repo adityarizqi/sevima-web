@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
@@ -34,6 +35,9 @@ Route::middleware(['auth', 'auth.session', 'auth.role'])->group(function () {
         Route::get('/course/{action}/{id?}', [CourseController::class, 'get_action'])->name('course.action');
         Route::post('/course/{action}/{id?}', [CourseController::class, 'post_action']);
         Route::get('/users', [UserController::class, 'get_index'])->name('user.index');
+        Route::get('/user/profile', [UserController::class, 'get_profile'])->name('user.profile');
+        Route::post('/user/profile', [UserController::class, 'post_profile']);
+        Route::get('/find/author', [AuthorController::class, 'get_index'])->name('find.author');
         Route::get('/withdraws', [WithdrawController::class, 'get_index'])->name('withdraw.index');
     });
 });

@@ -22,9 +22,20 @@ class UserFactory extends Factory
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'type' => $this->faker->randomElement(['author', 'user']),
+            'image' => $this->faker->imageUrl(512, 512),
             'email_verified_at' => now(),
             'password' => Hash::make('admin123'), // password
-            'remember_token' => Str::random(10)
+            'remember_token' => Str::random(10),
+            'details' => json_encode([
+                'birth_day' => $this->faker->dateTimeBetween('-60 years', '-18 years')->format('m-d-Y'),
+                'gender' => $this->faker->randomElement(['Laki-Laki','Perempuan']),
+                'address' => $this->faker->address(),
+                'phone_number' => $this->faker->phoneNumber(),
+                'school_or_agency' => $this->faker->company(),
+                'city' => $this->faker->city(),
+                'province' => $this->faker->city(),
+                'zip' => $this->faker->postcode(),
+            ])
         ];
     }
 
