@@ -1,9 +1,9 @@
 $(document).ready(function () {
 
 	$('#js-main-slider').pogoSlider({
-		autoplay: true,
+		autoplay: false,
 		autoplayTimeout: 5000,
-		displayProgess: true,
+		displayProgess: false,
 		preserveTargetSize: true,
 		targetWidth: 1000,
 		targetHeight: 300,

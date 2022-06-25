@@ -40,10 +40,10 @@
                         <img src="{{ url('assets/backend/assets/img/brand/light.svg')}}" height="20" width="20"
                             alt="Volt Logo">
                     </span>
-                    <span class="mt-1 ms-1 sidebar-text">Volt Overview</span>
+                    <span class="mt-1 ms-1 sidebar-text">GuruLes.com</span>
                 </a>
             </li>
-            <li class="nav-item  active ">
+            <li class="nav-item  active">
                 <a href="pages/dashboard/dashboard.html" class="nav-link">
                     <span class="sidebar-icon">
                         <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
