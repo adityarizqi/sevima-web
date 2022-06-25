@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VerificationController;
@@ -21,9 +22,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+Route::controller(FrontendController::class)->group(function () {
+    Route::get('/', 'get_index')->name('home');
+    Route::get('/page/{page}', 'get_page')->name('page');
+});
 
 Route::middleware(['auth', 'auth.session', 'auth.role'])->group(function () {
     Route::prefix('backend')->name('backend.')->group(function () {

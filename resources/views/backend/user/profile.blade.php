@@ -119,11 +119,7 @@
                         <div class="profile-cover rounded-top" data-background="../assets/img/profile-cover.jpg">
                         </div>
                         <div class="card-body pb-5"><img src="@if ($user->image != null)
-                            @if (str_contains($user->image, 'https://'))
-                                {{ $user->image }}
-                            @else
-                                {{ url("$user->image") }}
-                            @endif
+                            {{ url("$user->image") }}
                         @else
                         {{ url('assets/backend/assets/img/team/profile-picture-3.jpg') }}
                         @endif"

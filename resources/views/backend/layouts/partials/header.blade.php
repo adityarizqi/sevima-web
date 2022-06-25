@@ -166,11 +166,7 @@
                         <div class="media d-flex align-items-center">
                             <img class="avatar rounded-circle" alt="Image placeholder"
                                 src="@if (auth()->user()->image != null)
-                                @if (str_contains(auth()->user()->image, 'https://'))
-                                    {{ auth()->user()->image }}
-                                @else
-                                    {{ url(auth()->user()->image) }}
-                                @endif
+                                {{ url(auth()->user()->image) }}
                             @else
                             {{ url('assets/backend/assets/img/team/profile-picture-3.jpg') }}
                             @endif">

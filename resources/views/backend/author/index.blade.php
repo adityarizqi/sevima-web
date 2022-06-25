@@ -11,11 +11,7 @@
         <div class="card-body d-sm-flex align-items-center flex-wrap flex-lg-nowrap py-0">
             <div class="col-1 text-left text-sm-center mb-2 mb-sm-0">
                 <img src="@if ($item->image != null)
-                @if (str_contains($item->image, 'https://'))
-                    {{ $item->image }}
-                @else
-                    {{ url("$item->image") }}
-                @endif
+                {{ url("$item->image") }}
             @else
             {{ url('assets/backend/assets/img/team/profile-picture-3.jpg') }}
             @endif" alt="">

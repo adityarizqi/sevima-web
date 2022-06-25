@@ -5,11 +5,7 @@
             <div class="d-flex align-items-center">
                 <div class="avatar-lg me-4">
                     <img src="@if (auth()->user()->image != null)
-                    @if (str_contains(auth()->user()->image, 'https://'))
-                        {{ auth()->user()->image }}
-                    @else
-                        {{ url(auth()->user()->image) }}
-                    @endif
+                    {{ url(auth()->user()->image) }}
                 @else
                 {{ url('assets/backend/assets/img/team/profile-picture-3.jpg') }}
                 @endif"

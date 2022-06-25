@@ -22,7 +22,6 @@ class BlogFactory extends Factory
             'status' => $this->faker->randomElement(['draft', 'publish']),
             'title' => $this->faker->sentence,
             'image' => $this->faker->imageUrl(600, 400),
-            'slug' => $this->faker->slug,
             'content' => $this->faker->text,
         ];
     }

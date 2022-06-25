@@ -42,9 +42,13 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Blog::factory(300)->create();
 
+        \App\Models\News::factory(50)->create();
+
         \App\Models\Course::factory(300)->create();
 
         \App\Models\ARelation::factory(100)->create();
+
+        \App\Models\Order::factory(100)->create();
 
         \App\Models\RRelation::factory(100)->create();
     }

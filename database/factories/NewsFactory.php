@@ -6,9 +6,9 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\\Course>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\\News>
  */
-class CourseFactory extends Factory
+class NewsFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,11 +18,10 @@ class CourseFactory extends Factory
     public function definition()
     {
         return [
-            'author_id' => User::where('type','author')->inRandomOrder()->first()->id,
+            'admin_id' => User::where('type','admin')->inRandomOrder()->first()->id,
             'status' => $this->faker->randomElement(['draft', 'publish']),
             'title' => $this->faker->sentence,
-            'price' => $this->faker->randomNumber(6,true),
-            'image' => $this->faker->imageUrl(600, 400),
+            'image' => $this->faker->imageUrl(600, 350),
             'content' => $this->faker->text,
         ];
     }
