@@ -23,7 +23,7 @@ class LoginController extends Controller
         ]);
 
         if (auth()->attempt(['email' => $request->email, 'password' => $request->password], $request->has('remember'))) {
-            return redirect()->route('dashboard');
+            return redirect()->route('backend.dashboard');
         }
 
         return redirect()->back()->withErrors(['email' => 'Akun tidak ditemukan atau password salah.'])->withInput();
@@ -50,7 +50,7 @@ class LoginController extends Controller
 
         auth()->login($user);
 
-        return redirect()->route('dashboard')->with('success', 'Akun berhasil dibuat.');
+        return redirect()->route('backend.dashboard')->with('success', 'Akun berhasil dibuat.');
     }
 
     public function get_logout(Request $request){
