@@ -194,8 +194,8 @@
                 </a>
             </li>
             @else
-            <li class="nav-item {{ Request::routeIs('backend.find.author') ? 'active' : '' }}">
-                <a href="{{ route('backend.find.author') }}" class="nav-link">
+            <li class="nav-item {{ Request::routeIs('backend.author.find') ? 'active' : '' }}">
+                <a href="{{ route('backend.author.find') }}" class="nav-link">
                     <span class="sidebar-icon">
                         <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">

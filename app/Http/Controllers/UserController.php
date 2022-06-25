@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ARelation;
 use App\Models\Helper;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -11,8 +12,8 @@ class UserController extends Controller
 {
     public function get_index(){
         $params['data'] = auth()->user()->type == 'author' ?
-            DB::Table('author_relations')->where('author_id', auth()->user()->id)->orderBy('user_id', 'DESC')->paginate(10) :
-            DB::Table('users')->orderBy('name', 'DESC')->paginate(10);
+            ARelation::where('author_id', auth()->user()->id)->orderBy('user_id', 'DESC')->paginate(10) :
+            User::orderBy('name', 'DESC')->paginate(10);
         return view('backend.user.index', $params);
     }
 

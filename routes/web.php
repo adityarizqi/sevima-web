@@ -37,7 +37,8 @@ Route::middleware(['auth', 'auth.session', 'auth.role'])->group(function () {
         Route::get('/users', [UserController::class, 'get_index'])->name('user.index');
         Route::get('/user/profile', [UserController::class, 'get_profile'])->name('user.profile');
         Route::post('/user/profile', [UserController::class, 'post_profile']);
-        Route::get('/find/author', [AuthorController::class, 'get_index'])->name('find.author');
+        Route::get('/author/find', [AuthorController::class, 'get_index'])->name('author.find');
+        Route::get('/author/info/{id}', [AuthorController::class, 'get_detail'])->name('author.detail');
         Route::get('/withdraws', [WithdrawController::class, 'get_index'])->name('withdraw.index');
     });
 });

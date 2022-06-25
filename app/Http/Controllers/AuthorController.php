@@ -29,4 +29,12 @@ class AuthorController extends Controller
 
         return view('backend.author.index', $params);
     }
+
+    public function get_detail($id){
+        $params['user'] = User::find($id);
+        if( $params['user'] == null || $params['user']->type != 'author'){
+            return redirect()->route('backend.author.find')->with('error','Guru tidak ditemukan.');
+        }
+        return view('backend.author.profile', $params);
+    }
 }

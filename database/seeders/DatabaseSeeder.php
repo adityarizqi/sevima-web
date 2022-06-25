@@ -43,5 +43,9 @@ class DatabaseSeeder extends Seeder
             'type' => 'user',
             'password' => Hash::make('admin123'),
         ]);
+
+        \App\Models\ARelation::factory(100)->create();
+
+        \App\Models\RRelation::factory(100)->create();
     }
 }
