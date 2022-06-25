@@ -104,7 +104,7 @@
                                     id="province" name="province" type="text" value="{{ $data != null ? $data->province : '' }}" placeholder="Provinsi" required></div>
                         </div>
                         <div class="col-sm-4">
-                            <div class="form-group"><label for="zip">ZIP</label> <input class="form-control"
+                            <div class="form-group"><label for="zip">Kode POS</label> <input class="form-control"
                                     id="zip" type="text" name="zip" value="{{ $data != null ? $data->zip : '' }}" placeholder="ZIP" required></div>
                         </div>
                     </div>
