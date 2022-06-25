@@ -1,21 +1,21 @@
 @spaceless
     <!--
 
-    =========================================================
-    * Volt Free - Bootstrap 5 Dashboard
-    =========================================================
+        =========================================================
+        * Volt Free - Bootstrap 5 Dashboard
+        =========================================================
 
-    * Product Page: https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard
-    * Copyright 2021 Themesberg (https://www.themesberg.com)
-    * License (https://themesberg.com/licensing)
+        * Product Page: https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard
+        * Copyright 2021 Themesberg (https://www.themesberg.com)
+        * License (https://themesberg.com/licensing)
 
-    * Designed and coded by https://themesberg.com
+        * Designed and coded by https://themesberg.com
 
-    =========================================================
+        =========================================================
 
-    * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Please contact us to request a removal.
+        * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. Please contact us to request a removal.
 
-    -->
+        -->
     <!DOCTYPE html>
     <html lang="en">
 
@@ -62,7 +62,9 @@
                 @include('backend.layouts.partials.footer')
             </main>
         @else
-            @yield('content')
+            <main>
+                @yield('content')
+            </main>
         @endif
 
         <script src="{{ url('assets/backend/vendor/@popperjs/core/dist/umd/popper.min.js') }}"></script>
