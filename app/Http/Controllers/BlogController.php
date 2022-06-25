@@ -10,8 +10,10 @@ class BlogController extends Controller
 {
     public function get_index()
     {
-        $blogs = Blog::where('author_id', auth()->user()->id)->orderBy('title', 'ASC')->paginate(10);
-        return view('backend.page.index', ['data' => $blogs]);
+        $params['data'] = auth()->user()->type == 'author' ?
+            Blog::where('author_id', auth()->user()->id)->orderBy('title', 'ASC')->paginate(10) :
+            Blog::orderBy('title', 'ASC')->paginate(10);
+        return view('backend.page.index', $params);
     }
 
     public function get_action($action, $id = null)

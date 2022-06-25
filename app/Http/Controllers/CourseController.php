@@ -10,8 +10,10 @@ class CourseController extends Controller
 {
     public function get_index()
     {
-        $courses = Course::where('author_id', auth()->user()->id)->orderBy('title', 'ASC')->paginate(10);
-        return view('backend.course.index', ['data' => $courses]);
+        $params['data'] = auth()->user()->type == 'author' ?
+            Course::where('author_id', auth()->user()->id)->orderBy('title', 'ASC')->paginate(10) :
+            Course::orderBy('title', 'ASC')->paginate(10);
+        return view('backend.course.index', $params);
     }
 
     public function get_action($action, $id = null)

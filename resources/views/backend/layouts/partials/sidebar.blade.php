@@ -54,7 +54,7 @@
                     <span class="sidebar-text">Dashboard</span>
                 </a>
             </li>
-            @if (auth()->user()->type == 'author')
+            @if (auth()->user()->type == 'author' || auth()->user()->type == 'admin')
             <li class="nav-item">
                 <span class="nav-link  collapsed  d-flex justify-content-between align-items-center"
                     data-bs-toggle="collapse" data-bs-target="#submenu-pages">
@@ -86,11 +86,13 @@
                                 <span class="sidebar-text">Daftar Halaman</span>
                             </a>
                         </li>
+                        @if (auth()->user()->type == 'author')
                         <li class="nav-item {{ Request::routeIs('backend.page.action') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('backend.page.action', ['action' => 'create']) }}">
                                 <span class="sidebar-text">Tambah Halaman</span>
                             </a>
                         </li>
+                        @endif
                     </ul>
                 </div>
             </li>
@@ -125,16 +127,18 @@
                                 <span class="sidebar-text">Daftar Kursus</span>
                             </a>
                         </li>
+                        @if (auth()->user()->type == 'author')
                         <li class="nav-item {{ Request::routeIs('backend.course.action') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('backend.course.action', ['action' => 'create']) }}">
                                 <span class="sidebar-text">Tambah Kursus</span>
                             </a>
                         </li>
+                        @endif
                     </ul>
                 </div>
             </li>
-            <li class="nav-item ">
-                <a href="pages/settings.html" class="nav-link">
+            <li class="nav-item {{ Request::routeIs('backend.user.index') ? 'active' : '' }}">
+                <a href="{{ route('backend.user.index') }}" class="nav-link">
                     <span class="sidebar-icon">
                         <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">

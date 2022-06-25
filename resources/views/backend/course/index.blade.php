@@ -27,7 +27,7 @@
                                     {{ $item->slug }}
                                 </td>
                                 <td>
-                                    {{ $item->created_at->format('d/m/Y') }}
+                                    {{ $item->created_at->format('d/m/Y') }}<br> <span class="text-muted text-sm">({{ $item->created_at->diffForHumans() }})</span>
                                 </td>
                                 <form id="delete_form" method="POST" action="{{ route('backend.course.action', ['action' => 'update', 'id' => $item->id]) }}">
                                     @csrf <input type="hidden" name="method" value="delete"></form>
