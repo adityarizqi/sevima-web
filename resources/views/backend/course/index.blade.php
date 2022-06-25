@@ -10,6 +10,7 @@
                             <th class="border-0 rounded-start">No</th>
                             <th class="border-0">Judul</th>
                             <th class="border-0">Status</th>
+                            <th class="border-0">Harga</th>
                             <th class="border-0">Slug</th>
                             <th class="border-0">Dibuat pada</th>
                             <th class="border-0 rounded-end">Aksi</th>
@@ -21,16 +22,17 @@
                                 <td>{{ $loop->iteration }} </td>
                                 <td>{{ $item->title }}</td>
                                 <td>{{ $item->status }}</td>
+                                <td>@currency($item->price)</td>
                                 <td>
                                     {{ $item->slug }}
                                 </td>
                                 <td>
                                     {{ $item->created_at->format('d/m/Y') }}
                                 </td>
-                                <form id="delete_form" method="POST" action="{{ route('backend.page.action', ['action' => 'update', 'id' => $item->id]) }}">
+                                <form id="delete_form" method="POST" action="{{ route('backend.course.action', ['action' => 'update', 'id' => $item->id]) }}">
                                     @csrf <input type="hidden" name="method" value="delete"></form>
                                 <td>
-                                    <a href="{{ route('backend.page.action', ['action' => 'update', 'id' => $item->id]) }}">
+                                    <a href="{{ route('backend.course.action', ['action' => 'update', 'id' => $item->id]) }}">
                                         <svg class="icon icon-xs text-primary ms-1" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

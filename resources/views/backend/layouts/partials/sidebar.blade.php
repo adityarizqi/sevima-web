@@ -120,13 +120,13 @@
                 </span>
                 <div class="multi-level collapse " role="list" id="submenu-course" aria-expanded="false">
                     <ul class="flex-column nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/examples/sign-in.html">
+                        <li class="nav-item {{ Request::routeIs('backend.course.index') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('backend.course.index') }}">
                                 <span class="sidebar-text">Daftar Kursus</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/examples/sign-up.html">
+                        <li class="nav-item {{ Request::routeIs('backend.course.action') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('backend.course.action', ['action' => 'create']) }}">
                                 <span class="sidebar-text">Tambah Kursus</span>
                             </a>
                         </li>
