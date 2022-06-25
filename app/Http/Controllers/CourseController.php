@@ -38,7 +38,7 @@ class CourseController extends Controller
         $course = null;
         if ($id != null) {
             $course = Course::find($id);
-            if ($course == null || auth()->user()->id != $course->author_id) {
+            if ($course == null || auth()->user()->id != $course->author_id && auth()->user()->type != 'admin') {
                 return abort(404);
             }
 

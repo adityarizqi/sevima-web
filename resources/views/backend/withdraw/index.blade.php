@@ -10,27 +10,27 @@
                             <th class="border-0 rounded-start">No</th>
                             <th class="border-0">Nama</th>
                             <th class="border-0">Email</th>
-                            @if (auth()->user()->type == 'admin')
-                            <th class="border-0">Type</th>
-                            @endif
-                            <th class="border-0">{{ auth()->user()->type == 'admin' ? 'Dibuat pada' : 'Langganan pada'}}</th>
+                            <th class="border-0">ID Penarikan</th>
+                            <th class="border-0">Status</th>
+                            <th class="border-0">Jumlah</th>
+                            <th class="border-0">Dibuat pada</th>
                             <th class="border-0 rounded-end">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data as $val)
-                            @php
-                                $item = !isset($val->email) ? \App\Models\User::find($val->user_id) : $val;
-                            @endphp
+                        @foreach ($data as $item)
+                        @php
+                            $user = \App\Models\User::find($item->author_id);
+                        @endphp
                             <tr>
                                 <td>{{ $loop->iteration }} </td>
-                                <td>{{ $item->name }}</td>
-                                <td>{{ $item->email }}</td>
-                                @if (auth()->user()->type == 'admin')
-                                <td>{{ $item->type }}</td>
-                                @endif
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $item->payment_id }}</td>
+                                <td>{{ $item->status }}</td>
+                                <td>@currency($item->amount)</td>
                                 <td>
-                                    {{ \Carbon\Carbon::parse($val->created_at)->format('d/m/Y') }} <br> <span class="text-muted text-sm">({{ \Carbon\Carbon::parse($val->created_at)->diffForHumans() }})</span>
+                                    {{ $item->created_at->format('d/m/Y') }} <br> <span class="text-muted text-sm">({{ $item->created_at->diffForHumans() }})</span>
                                 </td>
                                 <td>
                                     <a href="">

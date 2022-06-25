@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VerificationController;
+use App\Http\Controllers\WithdrawController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,11 +29,12 @@ Route::middleware(['auth', 'auth.session', 'auth.role'])->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'get_index'])->name('dashboard');
         Route::get('/pages', [BlogController::class, 'get_index'])->name('page.index');
         Route::get('/page/{action}/{id?}', [BlogController::class, 'get_action'])->name('page.action');
-        Route::post('/page/{action}/{id?}', [BlogController::class, 'post_action'])->name('page.action');
+        Route::post('/page/{action}/{id?}', [BlogController::class, 'post_action']);
         Route::get('/courses', [CourseController::class, 'get_index'])->name('course.index');
         Route::get('/course/{action}/{id?}', [CourseController::class, 'get_action'])->name('course.action');
-        Route::post('/course/{action}/{id?}', [CourseController::class, 'post_action'])->name('course.action');
+        Route::post('/course/{action}/{id?}', [CourseController::class, 'post_action']);
         Route::get('/users', [UserController::class, 'get_index'])->name('user.index');
+        Route::get('/withdraws', [WithdrawController::class, 'get_index'])->name('withdraw.index');
     });
 });
 

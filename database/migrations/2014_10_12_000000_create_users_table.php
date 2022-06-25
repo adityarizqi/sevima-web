@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('type')->nullable();
+            $table->string('balance')->default('0');
             $table->string('password');
             $table->text('details')->nullable();
             $table->rememberToken();

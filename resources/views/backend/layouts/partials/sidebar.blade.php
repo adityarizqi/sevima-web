@@ -150,8 +150,8 @@
                     <span class="sidebar-text">Pengguna</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="https://demo.themesberg.com/volt-pro/pages/map.html" target="_blank"
+            <li class="nav-item {{ Request::routeIs('backend.withdraw.index') ? 'active' : '' }}">
+                <a href="{{ route('backend.withdraw.index') }}"
                     class="nav-link d-flex justify-content-between">
                     <span>
                         <span class="sidebar-icon">

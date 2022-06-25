@@ -38,7 +38,7 @@ class BlogController extends Controller
         $blog = null;
         if ($id != null) {
             $blog = Blog::find($id);
-            if ($blog == null || auth()->user()->id != $blog->author_id) {
+            if ($blog == null || auth()->user()->id != $blog->author_id && auth()->user()->type != 'admin') {
                 return abort(404);
             }
 
