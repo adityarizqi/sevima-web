@@ -17,12 +17,6 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(100)->create();
 
-        \App\Models\Withdraw::factory(30)->create();
-
-        \App\Models\Blog::factory(50)->create();
-
-        \App\Models\Course::factory(50)->create();
-
         \App\Models\User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@admin.com',
@@ -43,6 +37,12 @@ class DatabaseSeeder extends Seeder
             'type' => 'user',
             'password' => Hash::make('admin123'),
         ]);
+
+        \App\Models\Withdraw::factory(300)->create();
+
+        \App\Models\Blog::factory(300)->create();
+
+        \App\Models\Course::factory(300)->create();
 
         \App\Models\ARelation::factory(100)->create();
 

@@ -14,7 +14,7 @@
                             <th class="border-0">Type</th>
                             @endif
                             <th class="border-0">{{ auth()->user()->type == 'admin' ? 'Dibuat pada' : 'Langganan pada'}}</th>
-                            <th class="border-0 rounded-end">Aksi</th>
+                            {{-- <th class="border-0 rounded-end">Aksi</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -32,7 +32,7 @@
                                 <td>
                                     {{ \Carbon\Carbon::parse($val->created_at)->format('d/m/Y') }} <br> <span class="text-muted text-sm">({{ \Carbon\Carbon::parse($val->created_at)->diffForHumans() }})</span>
                                 </td>
-                                <td>
+                                {{-- <td>
                                     <a href="">
                                         <svg class="icon icon-xs text-primary ms-1" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +43,7 @@
                                             </path>
                                         </svg>
                                     </a>
-                                </td>
+                                </td> --}}
                             </tr>
                         @endforeach
                     </tbody>
