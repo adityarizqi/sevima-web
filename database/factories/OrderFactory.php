@@ -25,7 +25,7 @@ class OrderFactory extends Factory
             'payment_status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),
             'payment_id' => 'INV-'.$this->faker->randomNumber(5, true),
             'payment_reference' => $this->faker->randomNumber(5, true),
-            'payment_amount' => $this->faker->randomNumber(6,true)
+            'payment_amount' => $this->faker->randomNumber(5,true)
         ];
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VerificationController;
 use App\Http\Controllers\WithdrawController;
@@ -39,6 +40,7 @@ Route::middleware(['auth', 'auth.session', 'auth.role'])->group(function () {
         Route::get('/users', [UserController::class, 'get_index'])->name('user.index');
         Route::get('/user/profile', [UserController::class, 'get_profile'])->name('user.profile');
         Route::post('/user/profile', [UserController::class, 'post_profile']);
+        Route::get('/orders', [OrderController::class, 'get_index'])->name('order.index');
         Route::get('/author/find', [AuthorController::class, 'get_index'])->name('author.find');
         Route::get('/author/info/{id}', [AuthorController::class, 'get_detail'])->name('author.detail');
         Route::get('/withdraws', [WithdrawController::class, 'get_index'])->name('withdraw.index');
