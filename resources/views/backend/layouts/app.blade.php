@@ -27,26 +27,16 @@
         <meta name="author" content="Themesberg">
         <meta name="description" content="gurules.com">
         <meta name="keywords" content="e-course, e-learning, online, gurules.com, cari-guru-les" />
-
-        <link rel="apple-touch-icon" sizes="120x120"
-            href="{{ url('assets/backend/assets/img/favicon/apple-touch-icon.png') }}">
-        <link rel="icon" type="image/png" sizes="32x32"
-            href="{{ url('assets/backend/assets/img/favicon/favicon-32x32.png') }}">
-        <link rel="icon" type="image/png" sizes="16x16"
-            href="{{ url('assets/backend/assets/img/favicon/favicon-16x16.png') }}">
-        <link rel="manifest" href="{{ url('assets/backend/assets/img/favicon/site.webmanifest') }}">
-        <link rel="mask-icon" href="{{ url('assets/backend/assets/img/favicon/safari-pinned-tab.svg') }}" color="#ffffff">
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="theme-color" content="#ffffff">
 
-        <link type="text/css" href="{{ url('assets/backend/vendor/sweetalert2/dist/sweetalert2.min.css') }}"
-            rel="stylesheet">
-        <link type="text/css" href="{{ url('assets/backend/vendor/notyf/notyf.min.css') }}" rel="stylesheet">
-        <link type="text/css" href="{{ url('assets/backend/css/volt.css') }}" rel="stylesheet">
+        @include('backend.layouts.partials.head')
 
     </head>
 
     <body>
+
+        @include('backend.layouts.partials.script')
 
         @if (!isset($ignore_dashboard_layout))
             @include('backend.layouts.partials.navbar')
@@ -67,23 +57,23 @@
             </main>
         @endif
 
-        <script src="{{ url('assets/backend/vendor/@popperjs/core/dist/umd/popper.min.js') }}"></script>
-        <script src="{{ url('assets/backend/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-        <script src="{{ url('assets/backend/vendor/onscreen/dist/on-screen.umd.min.js') }}"></script>
-        <script src="{{ url('assets/backend/vendor/nouislider/distribute/nouislider.min.js') }}"></script>
-        <script src="{{ url('assets/backend/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
-        <script src="{{ url('assets/backend/vendor/chartist/dist/chartist.min.js') }}"></script>
-        <script src="{{ url('assets/backend/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js') }}">
+        <script>
+            @if(session('success'))
+                Swal.fire({
+                    title: 'Berhasil',
+                    text: "{{ session('success') }}",
+                    icon: 'success',
+                    confirmButtonText: 'Baik'
+                })
+            @elseif(session('error'))
+                Swal.fire({
+                    title: 'Gagal',
+                    text: "{{ session('error') }}",
+                    icon: 'error',
+                    confirmButtonText: 'Baik'
+                })
+            @endif
         </script>
-        <script src="{{ url('assets/backend/vendor/vanillajs-datepicker/dist/js/datepicker.min.js') }}"></script>
-        <script src="{{ url('assets/backend/vendor/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
-        <script src="{{ url('assets/backend/vendor/vanillajs-datepicker/dist/js/datepicker.min.js') }}"></script>
-        <script src="{{ url('assets/backend/vendor/notyf/notyf.min.js') }}"></script>
-        <script src="{{ url('assets/backend/vendor/simplebar/dist/simplebar.min.js') }}"></script>
-        <script async defer src="https://buttons.github.io/buttons.js"></script>
-        <script src="{{ url('assets/backend/assets/js/volt.js') }}"></script>
-
     </body>
 
     </html>
