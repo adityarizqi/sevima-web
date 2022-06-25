@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->uid('user_id');
-            $table->uid('course_id');
+            $table->string('user_id');
+            $table->string('course_id');
             $table->string('payment_method')->nullable();
             $table->string('payment_status');
             $table->string('payment_id')->nullable();

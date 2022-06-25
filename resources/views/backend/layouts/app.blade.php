@@ -58,7 +58,7 @@
                             @foreach (explode('/', Request::path()) as $item)
                                 @if ($loop->iteration > 1)
                                     <li class="breadcrumb-item">
-                                        <a href="{{ route('backend.' . $item) }}">{{ ucfirst($item) }}</a>
+                                        <a href="javascript::void(0)">{{ ucfirst($item) }}</a>
                                     </li>
                                 @endif
                             @endforeach
@@ -84,6 +84,10 @@
                     icon: 'success',
                     confirmButtonText: 'Baik'
                 })
+
+                @php
+                    session()->forget('success');
+                @endphp
             @elseif(session('error'))
                 Swal.fire({
                     title: 'Gagal',
@@ -91,6 +95,10 @@
                     icon: 'error',
                     confirmButtonText: 'Baik'
                 })
+
+                @php
+                    session()->forget('success');
+                @endphp
             @endif
         </script>
     </body>

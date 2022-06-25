@@ -8,3 +8,4 @@
 <link type="text/css" href="{{ url('assets/backend/vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
 <link type="text/css" href="{{ url('assets/backend/vendor/notyf/notyf.min.css') }}" rel="stylesheet">
 <link type="text/css" href="{{ url('assets/backend/css/volt.css') }}" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">

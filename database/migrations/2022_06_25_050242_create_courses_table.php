@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->uid('author_id');
+            $table->string('author_id');
             $table->string('status')->default('draft');
             $table->string('price')->nullable();
             $table->string('title');
+            $table->string('image');
             $table->string('slug');
             $table->text('content');
             $table->timestamps();

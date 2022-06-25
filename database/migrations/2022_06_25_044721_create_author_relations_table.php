@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('author_relations', function (Blueprint $table) {
             $table->id();
-            $table->uid('author_id');
-            $table->uid('user_id');
+            $table->string('author_id');
+            $table->string('user_id');
             $table->timestamps();
         });
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\VerificationController;
@@ -22,7 +23,10 @@ Route::get('/', function () {
 
 Route::middleware(['auth', 'auth.session', 'role'])->group(function () {
     Route::prefix('backend')->name('backend.')->group(function () {
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/dashboard', [DashboardController::class, 'get_index'])->name('dashboard');
+        Route::get('/pages', [BlogController::class, 'get_index'])->name('page.index');
+        Route::get('/page/{action}/{id?}', [BlogController::class, 'get_action'])->name('page.action');
+        Route::post('/page/{action}/{id?}', [BlogController::class, 'post_action'])->name('page.action');
     });
 });
 
