@@ -19,3 +19,15 @@ php artisan migrate --seed
 
 php artisan serve
 ```
+
+
+## Link PPT (pdf)
+
+Google Drive: https://drive.google.com/file/d/1o1_E0IF7jcx0-Qhc8he_xkgXOFwdgJQo/view?usp=sharing
+
+
+## Link Demo (Web)
+
+Demo: https://sevima.gwadit.net
+Email: admin@admin.com || author@author.com || user@user.com
+Password: admin123
